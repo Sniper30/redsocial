@@ -11,40 +11,53 @@ datasource db {
 }
 
 model UserCredentials {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
   username String @unique
-  email   String   @unique
-  hash String
-  tokenRt String
-  user User @relation(fields: [userid], references: [id])
-  userid String  @unique @db.ObjectId
+  email    String @unique
+  hash     String
+  tokenRt  String
+  user     User   @relation(fields: [userid], references: [id])
+  userid   String @unique @db.ObjectId
+}
+
+model Like{
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  post Post?
+  up String[]
+  down String[]
 }
 
 model Post {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  slug     String    @unique
-  title    String
-  body     String
-  author   User      @relation(fields: [authorId], references: [id])
-  authorId String    @db.ObjectId
-  comments Comment[]
+  id String @id @default(auto()) @map("_id") @db.ObjectId 
+  createAt  DateTime @default(now())
+  updateAt DateTime @updatedAt
+  body String
+  image String
+  author User @relation(fields: [authorid],references: [id]) 
+  authorid String @db.ObjectId
+  like Like @relation(fields: [likeid],references: [id])
+  likeid String @unique @db.ObjectId
 }
 
 model User {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  name    String
-  lastname String
-  age Int 
-  address Address?
-  posts   Post[]
+  id              String           @id @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  lastname        String
+  age             Int
+  address         Address
   usercredentials UserCredentials?
-}
+  profilePhoto    String?
+  post Post[]
+  subscription    Subscriptions @relation(fields: [subscriptionid], references: [id])
+  subscriptionid String @unique @db.ObjectId
 
-model Comment {
-  id      String @id @default(auto()) @map("_id") @db.ObjectId
-  comment String
-  post    Post   @relation(fields: [postId], references: [id])
-  postId  String @db.ObjectId
+}
+model Subscriptions {
+  id  String @id @default(auto()) @map("_id") @db.ObjectId
+  user User?
+  subscriptions  String[]
+  subscribers  String[]
+
 }
 
 // Address is an embedded document

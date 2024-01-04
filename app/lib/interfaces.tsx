@@ -3,7 +3,7 @@ export interface atributesInterface {
   alt: string | "profile picture" ;
   height?: 40 | number;
   width?: 40 | number;
-  src?:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" | string;
+  src:| string;
 }
 
 export interface user_credentials {
@@ -42,6 +42,13 @@ export const user = z.object({
       .min(10)
       .refine((pw) => /[0-9]/.test(pw), "Password must contain a number"),
 });
+
+export const userLogin = z.object({
+  username: z.string().min(5),
+  password: z
+  .string()
+  .min(10)
+})
 
 export type modal_styles = {
   btn: {action:()=> void, title:string},

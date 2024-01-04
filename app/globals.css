@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --heigth-header: 95px;
+  --heigth-subs: calc(100vh - var(--heigth-header) )
+}
+
+header{
+  height: var(--heigth-header);
+
+}
 body{
   background: rgba(0, 0, 0, 0.1);
   /* background: rgba(226,232, 240); */
@@ -18,9 +27,6 @@ img {
   height: auto;
   object-fit: contain;
 }
-
-@media screen and (max-width: 639px) {
-  div.parentLoginRegisterContainer {
-    width: 100%;
-  }
+li{
+  cursor: pointer;
 }

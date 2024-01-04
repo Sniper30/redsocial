@@ -1,25 +1,63 @@
-import BodyPost from './body-post';
-import HeaderPost from './header-post';
-import Interactions from './interactions';
 
-export default function Post(){
-  return ( 
-    <div className='w-9/12 p-10 text-gray-500'>
-      <div className='rounded-lg drop-shadow-xl bg-slate-300 w-9/12 h-6/6 mt-6'>
-          <HeaderPost />
-          <BodyPost/>
-          <Interactions/>
+'use server'
+import getCurrentUser from '@/app/lib/getCurrentUser';
+import BodyPost from "./body-post";
+import HeaderPost from "./header-post";
+import Interactions from "./interactions/interactions";
+
+import MakePostComponent from './MakePost';
+import prisma from '@/app/lib/prismaClient';
+import { Suspense } from 'react';
+let posts = async ()=>{
+  const currentUser = await getCurrentUser();
+  let subs = await prisma.user.findMany({
+    where:{id:currentUser.userid},
+    include:{
+      subscription:{
+        select:{
+          subscriptions:true
+        }
+      }
+    }
+  });
+  let usersSubscription = subs[0].subscription.subscriptions
+  if(!usersSubscription) return;
+  return await prisma.post.findMany({
+    orderBy:{
+      createAt:'desc'
+    },
+    where:{
+      authorid:{
+        in: usersSubscription,
+      },
+    },
+    include:{
+      author: true
+    }
+  }) 
+  
+}
+
+export default async function Post() {
+  let Allposts = await posts();
+  return (
+    <Suspense>
+    <div className='mt-[103px] w-full h-auto min-h-screen text-gray-200 flex items-center flex-col'>
+    <MakePostComponent/>
+      {
+        (Allposts !== undefined && Allposts.length > 0 ) && Allposts?.map(post => (
+        <div key={post.id} className='rounded-lg drop-shadow-xl bg-indigo-400 min-[320px]:w-full min-[600px]:w-10/12 min-[1100px]:w-[800px] h-6/6 mt-6'>
+        <HeaderPost createAt={post.createAt as any as string} name={post.author.name +' '+post.author.lastname} picture={''} />
+        <Suspense>
+        <BodyPost picture={post.image} body={post.body}/>
+
+        </Suspense>
+        <Interactions id={post.id}/>
       </div>
-      <div className='rounded-lg drop-shadow-xl bg-slate-300 w-9/12 h-6/6 mt-6'>
-          <HeaderPost />
-          <BodyPost/>
-          <Interactions/>
-      </div>
-      <div className='rounded-lg drop-shadow-xl bg-slate-300 w-9/12 h-6/6 mt-6'>
-          <HeaderPost />
-          <BodyPost/>
-          <Interactions/>
-      </div>
+
+        ))
+      }
     </div>
-  )
+          </Suspense>
+  );
 }

@@ -1,5 +1,5 @@
-import {Oswald} from 'next/font/google';
+import {Oswald, Montserrat} from 'next/font/google';
 
 const oswald = Oswald({subsets:['latin']});
-
-export {oswald};
+const montserrat = Montserrat({subsets:['latin']})
+export {oswald, montserrat};
