@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       Rt_token = jwt.sign({email},secret,{expiresIn: '5 days'})
       token = jwt.sign({email},secret,{expiresIn:'1h'})
     }
-    let user = await prisma.user.create({data: {name,lastname,age,address:{street,state,city,zip:zipcode},profilePhoto:null,subscription:{create:{}}}})
+    let user = await prisma.user.create({data: {name,lastname,age,address:{street,state,city,zip:zipcode},profilePhoto:'/static/ben-sweet-2LowviVHZ-E-unsplash.jpg',subscription:{create:{}}}})
     let credentialsCreated = await prisma.userCredentials.create({data:{user:{connect: {id: user.id}}, email,hash,username,tokenRt:Rt_token ?? ""}});
     prisma.$disconnect();
     credentialsCreated.hash = '';

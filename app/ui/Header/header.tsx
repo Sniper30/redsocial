@@ -16,9 +16,7 @@ export default async function HeaderApp({children} : {children:React.ReactNode})
           {children}
         </OptionsBarComponent>
 
-        <Suspense>
             <InputFile />
-        </Suspense>
     </header>
   );
 }

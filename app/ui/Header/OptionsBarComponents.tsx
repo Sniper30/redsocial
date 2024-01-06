@@ -68,11 +68,11 @@ export default function OptionsBarComponent({children} : {children:React.ReactNo
         <li onClick={()=> heandleClick('Status')}>status</li>
         <li onClick={()=> heandleClick('logout')}>log out</li>
         <li className='w-full min-[860px]:hidden'>
-          <Suspense fallback={<p>loading</p>}>
+
              <Subscription mobil={true}> 
              {children}
              </Subscription>
-          </Suspense>
+
         </li>
       </ul> 
   )

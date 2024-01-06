@@ -11,6 +11,7 @@ export default async function BodyPost({picture,body}:{picture:string,body:strin
         width={300}
         height={300}
         alt=''
+        priority
       />
 
       </div>
