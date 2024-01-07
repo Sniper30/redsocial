@@ -5,14 +5,14 @@ import MakePostComponent from '../Post/MakePost';
 const PostSkeleton = ()=>(
   <div className="mt-[103px] w-full h-auto min-h-screen text-gray-200 flex flex-col justify-start items-center ">
     <MakePostComponent/>
-    <div className="w-[80%] h-auto mt-4">
+    <div className="w-7/12 h-auto mt-4">
 
     <div className="flex items-center justify-between p-4">
-            <div data-placeholder className="mr-2 h-10 w-10  rounded-full overflow-hidden relative bg-gray-200">
+            <div data-placeholder className="mr-2 h-10 w-10 animate-pulse  rounded-full overflow-hidden relative bg-gray-300">
         
                 </div>
-            <div className="flex flex-col justify-between items-center">
-            <div data-placeholder className="mb-2 h-5 w-40 overflow-hidden relative bg-gray-200">
+            <div className="flex flex-col justify-between items-center animate-pulse">
+            <div data-placeholder className="rounded-md mb-2 h-5 w-40 overflow-hidden relative bg-gray-300">
             
             </div>
             </div>
@@ -32,11 +32,11 @@ const PostSkeleton = ()=>(
         </div>
 
         <div className="flex items-center justify-between p-4">
-            <div data-placeholder className="mr-2 h-10 w-10  rounded-full overflow-hidden relative bg-gray-200">
+            <div data-placeholder className="mr-2 h-10 w-10 animate-pulse  rounded-full overflow-hidden relative bg-gray-300">
         
                 </div>
-            <div className="flex flex-col justify-between items-center">
-            <div data-placeholder className="mb-2 h-5 w-40 overflow-hidden relative bg-gray-200">
+            <div className="flex flex-col justify-between items-center animate-pulse">
+            <div data-placeholder className="rounded-md mb-2 h-5 w-40 overflow-hidden relative bg-gray-300">
             
             </div>
             </div>

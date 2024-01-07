@@ -39,7 +39,7 @@ export default function MakePostComponent(){
   return (
     <section className='p-1 rounded-lg drop-shadow-xl bg-indigo-400 min-[320px]:w-full min-[600px]:w-10/12 min-[1100px]:w-[800px] min-h-[100px] overflow-auto'>
     <div>
-      <div ref={textAreRef} suppressContentEditableWarning contentEditable className='bg-white w-full h-auto text-start rounded-lg p-2 focus:no-underline flex flex-col justify-start'>
+      <div ref={textAreRef} suppressContentEditableWarning contentEditable className='bg-white text-gray-600 w-full h-auto text-start rounded-lg p-2 focus:no-underline flex flex-col justify-start'>
         <span>Whats on your mind?</span>
 
       </div>

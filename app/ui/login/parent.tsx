@@ -12,6 +12,7 @@ export default function ParentLogin({children,title,icon} : {children: React.Rea
         src={icon}
         style={{width:'110px',height:'110px'}}
         alt=''
+        priority
       /> : null
     }
           <h1 className='text-3xl mb-10'>{title}</h1>

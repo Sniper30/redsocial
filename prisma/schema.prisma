@@ -20,7 +20,7 @@ model UserCredentials {
   userid   String @unique @db.ObjectId
 }
 
-model Like{
+model Points{
   id   String @id @default(auto()) @map("_id") @db.ObjectId
   post Post?
   up String[]
@@ -35,8 +35,8 @@ model Post {
   image String
   author User @relation(fields: [authorid],references: [id]) 
   authorid String @db.ObjectId
-  like Like @relation(fields: [likeid],references: [id])
-  likeid String @unique @db.ObjectId
+  points Points @relation(fields: [pointsid],references: [id])
+  pointsid String @unique @db.ObjectId
 }
 
 model User {

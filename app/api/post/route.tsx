@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
           body:text,
           image:filename,
           author:{connect:{id:currentUser.userid}},
-          like:{create:{up:[],down:[]}}
+          points:{create:{up:[],down:[]}}
         }
       })
   } catch (error) {

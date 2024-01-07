@@ -40,6 +40,7 @@ let posts = async ()=>{
 
 export default async function Post() {
   let Allposts = await posts();
+  console.log(Allposts)
   await new Promise((res,rej)=> setTimeout(res,1000))
   return (
 
@@ -49,10 +50,7 @@ export default async function Post() {
         (Allposts !== undefined && Allposts.length > 0 ) && Allposts?.map(post => (
         <div key={post.id} className='rounded-lg drop-shadow-xl bg-indigo-400 min-[320px]:w-full min-[600px]:w-10/12 min-[1100px]:w-[800px] h-6/6 mt-6'>
         <HeaderPost createAt={post.createAt as any as string} name={post.author.name +' '+post.author.lastname} picture={post.author.profilePhoto as string} />
-        <Suspense>
         <BodyPost picture={post.image} body={post.body}/>
-
-        </Suspense>
         <Interactions id={post.id}/>
       </div>
 
