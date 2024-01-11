@@ -25,9 +25,11 @@ export default function Registration() {
     let data = JSON.stringify(e);
     const request = await fetch('/api/register/',{
       method:'POST',
-      body:data
+      body:data,
+      headers:{
+        "Content-Type":"aplication/json; charset=utf-8"
+      }
     });
-    const result = await request.json();
     console.log(request.status);
     if(request.status != 200) {
       setType('warning');
