@@ -37,7 +37,7 @@ export default function Registration() {
       setVisibleModal(true);
     }else {
       setType('success');
-      setBtn({action:()=> replace(process.env.NEXT_PUBLIC_BASE_API_URL as string),title:'Home'})
+      // setBtn({action:()=> replace(process.env.NEXT_PUBLIC_BASE_API_URL as string),title:'Home'})
       setVisibleModal(true);
     }
   }
