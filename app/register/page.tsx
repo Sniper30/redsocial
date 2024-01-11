@@ -23,7 +23,7 @@ export default function Registration() {
   const {replace} = useRouter()
   const onSubmit = async (e: any) =>{
     let data = JSON.stringify(e);
-    const request = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/register/`,{
+    const request = await fetch(`/api/register/`,{
       method:'POST',
       body:data
     });
