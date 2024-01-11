@@ -25,10 +25,7 @@ export default function Registration() {
     let data = JSON.stringify(e);
     const request = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/register/`,{
       method:'POST',
-      body:data,
-      headers:{
-        "Content-Type":"aplication/json; charset=utf-8"
-      }
+      body:data
     });
     console.log(request.status);
     if(request.status != 200) {
