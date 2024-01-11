@@ -1,6 +1,6 @@
 'use client'
 import imageIcon from '@/public/image_FILL0_wght400_GRAD0_opsz24.svg'
-import Button from '../button/button';
+import Button from '../ButtonComponent/button';
 import Image from 'next/image';
 import { ChangeEvent, useRef, useState } from 'react';
 export default function MakePostComponent(){

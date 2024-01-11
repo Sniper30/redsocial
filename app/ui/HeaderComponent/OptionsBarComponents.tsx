@@ -4,7 +4,7 @@ import useToogle from '@/app/lib/hooks/toogleHook';
 import Image from 'next/image';
 import menu_icon from '@/public/arrow_circle_right_FILL1_wght400_GRAD0_opsz24.svg'
 import menu_icon_back from '@/public/arrow_circle_left_FILL1_wght400_GRAD0_opsz24.svg'
-import Subscription from '../subscriptions/subscriptions';
+import Subscription from '../SubscriptionsComponent/subscriptions';
 import LogOut from '@/app/lib/LogOut';
 import { useRouter } from 'next/navigation';
 

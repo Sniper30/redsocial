@@ -1,6 +1,6 @@
 "use client";
 import { ChangeEvent, useRef, useState } from 'react';
-import Button from '../button/button';
+import Button from '../ButtonComponent/button';
 
 export default function SearhBarComponent() {
   const [inputValue,setInputValue] = useState<string>('');

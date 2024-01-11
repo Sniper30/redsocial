@@ -1,4 +1,4 @@
-import MakePostComponent from '../Post/MakePost';
+import MakePostComponent from '../PostComponent/MakePost';
 
 
 

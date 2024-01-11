@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image';
-import InputText from '../ui/login/input'
-import ParentLogin from '../ui/login/parent'
+import InputText from '../ui/LoginComponent/input'
+import ParentLogin from '../ui/LoginComponent/parent'
 import loginIcon from '@/public/account_circle_FILL0_wght400_GRAD0_opsz24.svg'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';

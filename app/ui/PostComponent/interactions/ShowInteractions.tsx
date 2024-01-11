@@ -1,5 +1,5 @@
 'use client'
-import Button from '../../button/button'
+import Button from '../../ButtonComponent/button'
 
 import thumbUp from '@/public/thumb_up_FILL0_wght400_GRAD0_opsz24.svg'
 import thumbDown from '@/public/thumb_down_FILL0_wght400_GRAD0_opsz24.svg'

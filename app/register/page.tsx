@@ -1,7 +1,7 @@
 'use client'
 import { useForm} from 'react-hook-form';
-import InputText from "../ui/login/input";
-import ParentLogin from "../ui/login/parent";
+import InputText from "../ui/LoginComponent/input";
+import ParentLogin from "../ui/LoginComponent/parent";
 import { user } from '../lib/interfaces';
 import { zodResolver } from '@hookform/resolvers/zod'
 import Modal from '../modal';
