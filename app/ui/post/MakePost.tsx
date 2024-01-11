@@ -3,7 +3,6 @@ import imageIcon from '@/public/image_FILL0_wght400_GRAD0_opsz24.svg'
 import Button from '../button/button';
 import Image from 'next/image';
 import { ChangeEvent, useRef, useState } from 'react';
-import getCurrentUser from '@/app/lib/getCurrentUser';
 export default function MakePostComponent(){
   const fileRef = useRef(null) as any as {current: HTMLInputElement};
   const textAreRef = useRef(null) as any as {current: HTMLInputElement};

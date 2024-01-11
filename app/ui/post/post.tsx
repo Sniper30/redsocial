@@ -7,7 +7,7 @@ import Interactions from "./interactions/interactions";
 
 import MakePostComponent from './MakePost';
 import prisma from '@/app/lib/prismaClient';
-import { Suspense } from 'react';
+
 let posts = async ()=>{
   const currentUser = await getCurrentUser();
   let subs = await prisma.user.findMany({
